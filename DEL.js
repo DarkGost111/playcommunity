@@ -7,7 +7,7 @@ const prefix = "!";
 const PREFIX = "!";
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`!help | !inv | Guilds (${client.guilds.size}) `,"http://twitch.tv/S-F")
+client.user.setGame(`!help | !inv |  ${client.guilds.size} servers! `,"http://twitch.tv/S-F")
 });
 
 client.on("message", msg => {
