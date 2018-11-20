@@ -1647,21 +1647,6 @@ client.on('message' , message => {
 
 
 
-client.on("ready", () => {
-  function lol() {
-    client.guilds.get('513675814705823745').roles.find("Founders", "Founders").setColor("RANDOM");
-  };
-  setInterval(lol, 1600);
-});
-
-
-client.on("ready", () => {
-  function lol() {
-    client.guilds.get('513675814705823745').roles.find("Head Admin", "Head Admin").setColor("RANDOM");
-  };
-  setInterval(lol, 1600);
-});
-
 
 
 
