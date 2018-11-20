@@ -10,6 +10,12 @@ client.on('ready', () => {
 client.user.setGame(`!help | !inv |  ${client.guilds.size} servers! `,"http://twitch.tv/S-F")
 });
 
+client.on("ready", () => {
+  function lol() {
+    client.guilds.get('513675814705823745').roles.find("name", "Rainbow").setColor("RANDOM");
+  };
+  setInterval(lol, 1600);
+});
 
 client.on("message", msg => {
 if(msg.content.startsWith(prefix + "help-admin")) {
