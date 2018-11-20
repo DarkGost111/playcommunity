@@ -10,11 +10,31 @@ client.on('ready', () => {
 client.user.setGame(`!help | !inv |  ${client.guilds.size} servers! `,"http://twitch.tv/S-F")
 });
 
+
 client.on("message", msg => {
-if(msg.content.startsWith(prefix + "help-admin")) {
-if(!msg.member.hasPermission('ADMINISTRATOR')) return      msg.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-       msg.channel.send('**تم ارسال رسالة في الخاص**');
+if(msg.content === "!help") {
+msg.channel.send('**تم ارسال رسالة في الخاص**');
 msg.author.sendMessage(`**
+=>> Public Cmd <<=
+====><=====
+${prefix}avatar < Mention > يعرضلك صوره البروفايل الخاصه بك او الشخص الي تمنشنه
+${prefix}id يعرضلك معلوماتك
+${prefix}ownerbot يعرضلك رئس البوت
+${prefix}embed لجعل البوت يكتب كلام بامبد
+====><=====
+${prefix}ping يعرضلك سرعة استجابة البوت في الوقت الحالي
+${prefix}support يعرضلك سيرفر السبورت للبوت
+${prefix}inv لدعوة البوت الى سيرفرك
+${prefix}bot يعرضلك معلومات البوت
+${prefix}rooms يعرضلك كم رومات موجوده و يوريك اسماْهم
+====><=====
+=>> Credit Cmd <<=
+${prefix}credit < Mention > يعرضلك كم معه العضو الي تمنشه كريدت
+او اذا كتبت
+${prefix}credit بدون منشن بيقلك كم معك انت
+${prefix}daily يعطيك كريدت يومينا
+${prefix}credits < Mention > تعطي العضو الي تمنشنه كريدت
+====><=====
 =>> Admin Cmd <<==
 ====><=====
 ${prefix}ban < Mention > لاعطاء العضو بان
@@ -46,36 +66,8 @@ ${prefix}s-p < Mention > < Message > يرسل رسالة في خاص الي تم
 ${prefix}closeroom لتقفيل الشات الكاتبي
 ${prefix}openroom  لفتح الشات الكاتبي
 ${prefix}roles يوريك الرتب كلها في السيرفر
-**`)
-}
-});
-
-client.on("message", msg => {
-if(msg.content === "!help") {
-msg.channel.send('**تم ارسال رسالة في الخاص**');
-msg.author.sendMessage(`**
-=>> Public Cmd <<=
-====><=====
-${prefix}avatar < Mention > يعرضلك صوره البروفايل الخاصه بك او الشخص الي تمنشنه
-${prefix}id يعرضلك معلوماتك
-${prefix}ownerbot يعرضلك رئس البوت
-${prefix}embed لجعل البوت يكتب كلام بامبد
-====><=====
-${prefix}ping يعرضلك سرعة استجابة البوت في الوقت الحالي
-${prefix}support يعرضلك سيرفر السبورت للبوت
-${prefix}inv لدعوة البوت الى سيرفرك
-${prefix}bot يعرضلك معلومات البوت
-${prefix}rooms يعرضلك كم رومات موجوده و يوريك اسماْهم
-====><=====
-=>> Credit Cmd <<=
-${prefix}credit < Mention > يعرضلك كم معه العضو الي تمنشه كريدت
-او اذا كتبت
-${prefix}credit بدون منشن بيقلك كم معك انت
-${prefix}daily يعطيك كريدت يومينا
-${prefix}credits < Mention > تعطي العضو الي تمنشنه كريدت
 ====><=====
 =>> Games Cmd <<=
-
 قم بتفكيك الجمل - فكك
  
 قم بتركيب الجمل  - ركب
