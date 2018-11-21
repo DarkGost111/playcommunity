@@ -685,7 +685,7 @@ Dat = currentTime.getDate()
 
 client.on ("guildMemberAdd", member => {
   
-   var role = member.guild.roles.find ("name", "member");
+   var role = member.guild.roles.find ("name", "PC");
    member.addRole (role);
   
 })
