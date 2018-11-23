@@ -476,49 +476,30 @@ client.on ('message', Sal => { //By Salto7#4595
   }
 });
 
-client.on('message', message => {
-   
-    let args = message.content.split(' ').slice(1).join(' ');
-   
-  
+client.on('message',async message => {
+  if(message.author.bot || message.channel.type === '!bc') return;
+  let args = message.content.split(' ');
+  if(args[0] === `!bc`) {
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('- **أنت لا تملك الصلاحيات اللازمة لأستخدام هذا الأمر**');
+    if(!args[1]) return message.channel.send('- **يجب عليك كتابة الرسالة بعد الأمر**');
  
- 
-  if (message.content.startsWith(prefix +'bc2')) {
-          if (!args[0]) {
-message.channel.send("**!bc2 <message>**");
-return;
-}
-message.guild.members.forEach(m => {
-  if(!message.guild.members.get(message.author.id).hasPermission('ADMINISTRATOR')) return message.channel.send('انت لا تمتلك صلاحية ADMINISTRATOR')
-var embed = new Discord.RichEmbed()   
-.addField("السيرفر", message.guild.name, true)
-.addField("المرسل", message.author.tag, true)
-.addField("الرسالة", `${args}`, true)
-m.sendEmbed(embed);
- 
-});
+    let msgCount = 0;
+    let errorCount = 0;
+    let successCount = 0;
+    message.channel.send(`**- [ :bookmark: :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ :inbox_tray: :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ :outbox_tray: :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`).then(msg => {
+      message.guild.members.forEach(g => {
+        g.send(args.slice(1).join(' ')).then(() => {
+          successCount++;
+          msgCount++;
+          msg.edit(`**- [ :bookmark: :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ :inbox_tray: :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ :outbox_tray: :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
+        }).catch(e => {
+          errorCount++;
+          msgCount++;
+          msg.edit(`**- [ :bookmark: :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ :inbox_tray: :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ :outbox_tray: :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
+        });
+      });
+    });
   }
- 
-});
-
-client.on('message', message => {
-   
-    let args = message.content.split(' ').slice(1).join(' ');
-   
-  
- 
-  if (message.content.startsWith('!bc1')) {
-          if (!args[0]) {
-message.channel.send("**!bc1 <message>**");
-return;
-}
-message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-   m.send(`${args}`);
- 
-});
-  }
- 
 });
 
 
