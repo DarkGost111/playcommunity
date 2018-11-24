@@ -66,6 +66,7 @@ msg.author.sendMessage(`**
 ${prefix}avatar < Mention > يعرضلك صوره البروفايل الخاصه بك او الشخص الي تمنشنه
 ${prefix}id يعرضلك معلوماتك
 ${prefix}ownerbot يعرضلك رئس البوت
+${prefix}cc لصنع الوان
 ${prefix}embed لجعل البوت يكتب كلام بامبد
 ====><=====
 ${prefix}ping يعرضلك سرعة استجابة البوت في الوقت الحالي
