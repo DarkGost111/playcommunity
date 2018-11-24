@@ -220,7 +220,7 @@ client.on("message", msg => {
 if(msg.content === "!inv") {
 var embed = new Discord.RichEmbed()
 .setTitle("Click Here To Invite Bot")
-.setURL("https://discordapp.com/oauth2/authorize?client_id=505402688675250179&permissions=2146958583&scope=bot")
+.setURL("https://discordapp.com/oauth2/authorize?client_id=514127083316838400&permissions=2146958583&scope=bot")
 msg.channel.sendEmbed(embed);
 }
 });
